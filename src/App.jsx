@@ -10,19 +10,16 @@ function App() {
   return (
     <>
       <button onClick={() => {
-          axios({
-            method: 'post',
-            url: 'https://api-psw-notification.onrender.com/api/email-notify',
-            headers: {
-              orgin: 'http://localhost:5173',
-              request: 'https://api-psw-notification.onrender.com/api/email-notify',
-            }, 
-            data: {
+          axios.post('https://api-psw-notification.onrender.com/api/email-notify', {
               text: 'i hope this works',
               from: 'cogiao <cogiaolmao@bruhschool.edu.vn>',
               to: 'user <nguyenvuong17102008@gmail.com>',
               subject: 'testing emailjs'
-            }
+          }, {
+            headers: {
+              orgin: 'http://localhost:5173',
+              request: 'https://api-psw-notification.onrender.com/api/email-notify',
+            },
           })
           .then(function (response) {
             console.log(response);
